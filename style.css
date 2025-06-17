@@ -1,0 +1,310 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f7f7f7;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+header {
+  background: #222;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+
+header h1 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.xp-info-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.level-text {
+  font-size: 0.9rem;
+}
+
+.xp-label-text {
+  font-size: 0.75rem;
+  color: #ddd;
+}
+
+.xp-bar.small {
+  width: 150px;
+  height: 10px;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.xp-bar.small #xp-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #ff7f50, #ff1493);
+  transition: width 0.3s;
+}
+
+/* Header kanan ini jing*/
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu-button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #333;
+  color: white;
+  min-width: 140px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 100;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.menu-dropdown button {
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  padding: 0.6rem 1rem;
+  width: 100%;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.menu-dropdown button:hover {
+  background-color: #555;
+}
+
+
+.container {
+  flex: 1;
+  display: flex;
+}
+.sidebar {
+  width: 20%;
+  padding: 1rem;
+}
+.sidebar img {
+  width: 100%;
+  border-radius: 10px;
+}
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* <== ini nambahin! */
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* jarak antar tombol */
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 0; /* jarak antar tombol */
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  width: 120px; /* <== fix width biar seragam */
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background: #ff7f50;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+footer {
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
+}
+.level-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.xp-bar {
+  width: 100%;
+  height: 20px;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#xp-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #ff7f50, #ff1493);
+  transition: width 0.3s;
+}
+
+#battleBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 0.8rem 1.2rem;
+  background: #d62828;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+#battleScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#battleOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black; /* wajib! nutup semua di bawah */
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 300px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.popup-box h2 {
+  margin-bottom: 1rem;
+  color: #ff7f50;
+}
+.popup-box p {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.popup-box button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #ff7f50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 1rem;
+}
+
+.modal-content input,
+.modal-content button {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.reset-btn {
+  background-color: crimson;
+  color: white;
+  margin-top: 1.5rem;
+}
+
+.player-name {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
